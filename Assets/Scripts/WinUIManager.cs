@@ -8,6 +8,7 @@ public class WinUIManager : MonoBehaviour
     [Header("UI Elements")]
     public Text levelNumberText;
     public Text scoreText;
+    public Text coinText;
     [Space(10)]
     [Header("Needs")]
     public PrometeoCarController carController;
@@ -20,5 +21,6 @@ public class WinUIManager : MonoBehaviour
 
         levelNumberText.text = "Level "+levelData.levelNumber.ToString();
         scoreText.text = carController.driftScore.ToString();
+        coinText.text = "X" + carController.coinCount.ToString();
     }
 }

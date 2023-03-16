@@ -26,13 +26,6 @@ public class SimpleCollectibleScript : MonoBehaviour {
 			transform.Rotate (Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Car") {
-			Collect ();
-		}
-	}
-
 	public void Collect()
 	{
 		if(collectSound)

@@ -15,4 +15,8 @@ public class UIButtons : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene("Options");
+    }
 }

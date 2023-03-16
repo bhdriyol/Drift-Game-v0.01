@@ -32,6 +32,7 @@ public class PrometeoCarController : MonoBehaviour
       [Range(1, 10)]
       public int driftScoreMultiplier;
       public int driftScore;
+      public int coinCount;
       [Space(10)]
       public Vector3 bodyMassCenter; // This is a vector that contains the center of mass of the car. I recommend to set this value
                                      // in the points x = 0 and z = 0 of your car. You can select the value that you want in the y axis,
@@ -85,6 +86,7 @@ public class PrometeoCarController : MonoBehaviour
       public bool useUI = false;
       public Text carSpeedText; // Used to store the UI object that is going to show the speed of the car.
       public Text driftScoreText;
+      public Text coinScoreText;
       
 
     //SOUNDS
@@ -765,5 +767,16 @@ public class PrometeoCarController : MonoBehaviour
 
         driftingAxis = 0f;
       }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Coin")
+        {
+            other.enabled = false;
+            other.gameObject.GetComponent<SimpleCollectibleScript>().Collect();
+            coinCount++;
+            coinScoreText.text = "X" + coinCount.ToString();
+        }
     }
 }

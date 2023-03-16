@@ -19,6 +19,7 @@ public class LevelData : MonoBehaviour
     public GameObject speedUI;
     public GameObject scoreUI;
     public GameObject lapUI;
+    public GameObject coinUI;
     [Space(10)]
     [Header("Checkpoints")]
     public GameObject[] checkpointObj;
@@ -29,10 +30,7 @@ public class LevelData : MonoBehaviour
     private void Start()
     {
         checkpointObj = GameObject.FindGameObjectsWithTag("Checkpoint");
-        for (int i = 0; i <= checkpointObj.Length; i++)
-        {
-            checkpointCount = i;
-        }       
+        checkpointCount = checkpointObj.Length;
         lapCountText.text = lapCount.ToString() + " / " + levelMaxLap;
     }
 
@@ -64,6 +62,7 @@ public class LevelData : MonoBehaviour
                     speedUI.SetActive(false);
                     scoreUI.SetActive(false);
                     lapUI.SetActive(false);
+                    coinUI.SetActive(false);
                 }
             }
         }

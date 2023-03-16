@@ -26,6 +26,7 @@ public class PrometeoEditor : Editor{
   private SerializedProperty handbrakeDriftMultiplier;
   private SerializedProperty driftScore;
   private SerializedProperty driftScoreMultiplier;
+  private SerializedProperty coinCount;
   private SerializedProperty bodyMassCenter;
     //
     //
@@ -59,6 +60,7 @@ public class PrometeoEditor : Editor{
   private SerializedProperty useUI;
   private SerializedProperty carSpeedText;
   private SerializedProperty driftScoreText;
+  private SerializedProperty coinScoreText;
   //
   //
   //SPEED TEXT (UI) VARIABLES
@@ -93,6 +95,7 @@ public class PrometeoEditor : Editor{
     handbrakeDriftMultiplier = SO.FindProperty("handbrakeDriftMultiplier");
     driftScore = SO.FindProperty("driftScore");
     driftScoreMultiplier = SO.FindProperty("driftScoreMultiplier");
+    coinCount = SO.FindProperty("coinCount");
     bodyMassCenter = SO.FindProperty("bodyMassCenter");
 
         frontLeftMesh = SO.FindProperty("frontLeftMesh");
@@ -113,6 +116,7 @@ public class PrometeoEditor : Editor{
     useUI = SO.FindProperty("useUI");
     carSpeedText = SO.FindProperty("carSpeedText");
     driftScoreText = SO.FindProperty("driftScoreText");
+    coinScoreText = SO.FindProperty("coinScoreText");
 
     useSounds = SO.FindProperty("useSounds");
     carEngineSound = SO.FindProperty("carEngineSound");
@@ -150,6 +154,7 @@ public class PrometeoEditor : Editor{
     handbrakeDriftMultiplier.intValue = EditorGUILayout.IntSlider("Drift Multiplier:", handbrakeDriftMultiplier.intValue, 1, 10);
     driftScoreMultiplier.intValue = EditorGUILayout.IntSlider("Drift Score Multiplier",driftScoreMultiplier.intValue,1,10);
     driftScore.intValue = EditorGUILayout.IntField("Drift Score", driftScore.intValue);
+    coinCount.intValue = EditorGUILayout.IntField("Coin Count", coinCount.intValue);
     EditorGUILayout.PropertyField(bodyMassCenter, new GUIContent("Mass Center of Car: "));
 
     //
@@ -210,6 +215,7 @@ public class PrometeoEditor : Editor{
 
         EditorGUILayout.PropertyField(carSpeedText, new GUIContent("Speed Text (UI): "));
         EditorGUILayout.PropertyField(driftScoreText, new GUIContent("Drift Text (UI): "));
+        EditorGUILayout.PropertyField(coinScoreText, new GUIContent("Coin Score Text (UI): "));
 
     EditorGUILayout.EndToggleGroup();
 
